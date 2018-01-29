@@ -1,6 +1,6 @@
 # README
 
-#DB設計
+# DB設計
 
 ## usersテーブル
 
@@ -10,8 +10,9 @@
 |email|string|null: false, unique: true|
 
 ### Association
-- belongs_to :group
+- has_many :groups, through: :members
 - has_many :messages
+- has_many :members
 
 ## messagesテーブル
 
@@ -31,14 +32,10 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|text|null: false|
-|image|string|null: false|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :group
-- belongs_to :user
-
+- has_many :users, through: :members
+- has_many :members
 
 ## membersテーブル
 
