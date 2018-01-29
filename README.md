@@ -1,6 +1,11 @@
-# README
-
 # DB設計
+
+## テーブルリスト
+- usersテーブル
+- messagesテーブル
+- groupsテーブル
+- membersテーブル
+
 
 ## usersテーブル
 
