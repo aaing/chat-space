@@ -20,6 +20,7 @@ html, body {
 .chat {
   width: 100%;
   height: 100%;
+  overflow: hidden;
   .chat-side {
     width: 100%;
     height: 100%;
@@ -66,6 +67,33 @@ html, body {
         }
 
       }
+    }
+  }
+  .chat-main {
+    width: calc(100% - 300px);
+    height: 100%;
+    float: right;
+    position: relative;
+    .main-group {
+      width: 100%;
+      height: 100px;
+      background-color: #FFFFFF;
+      position: absolute;
+      top: -100%;
+    }
+    .main-message {
+      width: 100%;
+      height: calc(100% - 190px);
+      background-color: #AAAAAA;
+      position: absolute;
+      top: calc(-100% + 100px);
+    }
+    .main-form {
+      width: 100%;
+      height: 90px;
+      background-color: #eeeeee;
+      position: absolute;
+      top: -90px;
     }
   }
 }
