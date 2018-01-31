@@ -30,7 +30,7 @@ html, body {
       background-color: #253141;
       text-align: right;
       line-height:100px;
-      .user-name {
+      &__user-name {
         font-weight: bold;
         font-size: 16px;
         color: #FFFFFF;
@@ -49,7 +49,7 @@ html, body {
       width: 300px;
       height: 100%;
       background-color: #2f3e51;
-      .group-info {
+      &__group-info {
         width: 300px;
         height: 91px;
         span {
@@ -57,11 +57,11 @@ html, body {
           color: #FFFFFF;
           display: block;
         }
-        .group-name {
+        &__group-name {
           font-size: 15px;
           padding-top: 20px;
         }
-        .group-message {
+        &__group-message {
           font-size: 11px;
           margin-top: 5px;
         }
