@@ -80,6 +80,33 @@ html, body {
       background-color: #FFFFFF;
       position: absolute;
       top: -100%;
+      span {
+        display: block;
+      }
+      &__group-name {
+        margin-left: 40px;
+        padding-top: 35px;
+        color: #333333;
+        font-size: 20px;
+      }
+      &__edit-button {
+        height: 40px;
+        float: right;
+        margin-top: -27px;
+        margin-right: 40px;
+        padding-left: 20px;
+        padding-right: 20px;
+        border: solid #38AEF0;
+        line-height: 40px;
+        font-size: 20px;
+        color: #38AEF0;
+      }
+      &__group-members {
+        margin-left: 40px;
+        padding-top: 15px;
+        color: #999999;
+        font-size: 12px;
+      }
     }
     .main-message {
       width: 100%;
