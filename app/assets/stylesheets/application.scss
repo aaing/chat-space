@@ -80,6 +80,7 @@ html, body {
       background-color: #FFFFFF;
       position: absolute;
       top: -100%;
+      border-bottom: solid #eeeeee;
       span {
         display: block;
       }
@@ -113,7 +114,34 @@ html, body {
       height: calc(100% - 190px);
       background-color: #AAAAAA;
       position: absolute;
-      top: calc(-100% + 100px);
+      top: calc(-100% + 101px);
+      &__content-message {
+        width: 100%;
+        height: 114px;
+        &__user-name {
+          color: #434A54;
+          font-size: 16px;
+          font-weight: bold;
+          margin-top: 40px;
+          margin-left: 40px;
+          float: left;
+          display: inline-block;
+        }
+        &__time-stamp {
+          color: #999999;
+          font-size: 12px;
+          margin-top: 40px;
+          margin-left: 10px;
+          display: inline-block;
+        }
+        &__text {
+          color: #434A54;
+          font-size: 14px;
+          margin-left: 40px;
+          display: block;
+          clear: both;
+        }
+      }
     }
     .main-form {
       width: 100%;
