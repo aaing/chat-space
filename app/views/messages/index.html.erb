@@ -8,8 +8,8 @@
   <div class="chat-side">
     <div class="side-user">
       <span class="side-user__user-name">yuta</span>
-      <a class="side-user__create-icon" href="#"><i class="fa fa-pencil fa-write" aria-hidden="true"></i>
-      <a class="side-user__setting-icon" href="#"><i class="fa fa-cog fa-setting" aria-hidden="true"></i>
+      <a href="#"><i class="fa fa-pencil fa-write" aria-hidden="true"></i></a>
+      <a class="side-user__setting-icon" href="#"><i class="fa fa-cog fa-setting" aria-hidden="true"></i></a>
     </div>
     <div class="side-group">
       <div class="side-group__group-info">
@@ -60,10 +60,16 @@
     </div>
     <div class="main-form">
       <div class="main-form__input-area">
-        type a message
+        <form method="post" enctype="multipart/form-data">
+          <input type="text" class="main-form__input-area__text" value="type a message">
+          <label>
+            <input type="file" class="main-form__input-area__image" accept="image/*" style="display:none">
+            <i class="fa fa-picture-o fa-2x" aria-hidden="true"></i>
+          </label>
+        </form>
       </div>
       <div class="main-form__submit-button">
-        submit
+        Send
       </div>
     </div>
   </div>
