@@ -1,3 +1,5 @@
+@import "variable";
+
 html, body {
   height: 100%;
   margin: 0;
@@ -5,10 +7,10 @@ html, body {
 }
 
 .flash-message {
-  background-color: #38AEF0;
+  background-color: $light-blue-color;
   width: 100%;
   height: 30px;
-  color: #FFFFFF;
+  color: $white-color;
   text-align: center;
   line-height: 30px;
 }
@@ -29,12 +31,12 @@ html, body {
       &__user-name {
         font-weight: bold;
         font-size: 16px;
-        color: #FFFFFF;
+        color: $white-color;
         margin-left: 20px;
         float: left;
       }
       .fa {
-        color: #FFFFFF;
+        color: $white-color;
         clear: left;
       }
       .fa-setting {
@@ -50,7 +52,7 @@ html, body {
         height: 91px;
         span {
           margin-left: 20px;
-          color: #FFFFFF;
+          color: $white-color;
           display: block;
         }
         &__group-name {
@@ -73,7 +75,7 @@ html, body {
     .main-group {
       width: 100%;
       height: 100px;
-      background-color: #FFFFFF;
+      background-color: $white-color;
       position: absolute;
       top: -100%;
       border-bottom: solid #eeeeee;
@@ -93,15 +95,15 @@ html, body {
         margin-right: 40px;
         padding-left: 20px;
         padding-right: 20px;
-        border: solid #38AEF0;
+        border: solid $light-blue-color;
         line-height: 40px;
         font-size: 20px;
-        color: #38AEF0;
+        color: $light-blue-color;
       }
       &__group-members {
         margin-left: 40px;
         padding-top: 15px;
-        color: #999999;
+        color: $thin-gray-color;
         font-size: 12px;
       }
     }
@@ -115,7 +117,7 @@ html, body {
         width: 100%;
         height: 114px;
         &__user-name {
-          color: #434A54;
+          color: $navy-color;
           font-size: 16px;
           font-weight: bold;
           margin-top: 40px;
@@ -124,14 +126,14 @@ html, body {
           display: inline-block;
         }
         &__time-stamp {
-          color: #999999;
+          color: $thin-gray-color;
           font-size: 12px;
           margin-top: 40px;
           margin-left: 10px;
           display: inline-block;
         }
         &__text {
-          color: #434A54;
+          color: $navy-color;
           font-size: 14px;
           margin-left: 40px;
           display: block;
@@ -144,19 +146,19 @@ html, body {
       height: 90px;
       background-color: #eeeeee;
       position: absolute;
-      top: -90px;
+      top: -120px;
       &__input-area {
-        background-color: #FFFFFF;
         height: 50px;
-        width: calc(100% - 200px);
+        width: calc(100% - 170px);
         margin-top: 20px;
         margin-right: 15px;
         margin-left: 40px;
         float: left;
+        position: relative;
         &__text {
           width: 100%;
           height: 50px;
-          color: #434A54;
+          color: $navy-color;
           font-size: 16px;
           float: left;
           padding-left: 10px;
@@ -171,15 +173,18 @@ html, body {
         }
       }
       &__submit-button {
-        background-color: #38AEF0;
+        border: none;
+        cursor: pointer;
+        outline: none;
+        background-color: $light-blue-color;
         height: 50px;
-        margin-right: 40px;
-        margin-top: 20px;
+        margin-left: 15px;
         color: #FFFFFF;
         line-height: 50px;
         float: right;
         padding-left: 20px;
         padding-right: 20px;
+        font-size: 16px;
       }
     }
   }
