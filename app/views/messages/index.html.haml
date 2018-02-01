@@ -3,13 +3,13 @@
     %span.flash-message__message
       チャットグループが作成されました
   .chat-side
-    .side-user
-      %span.side-user__user-name yuta
-      %a.side-user__new-icon{:href => "#"}
+    .side-header
+      %span.side-header__user-name yuta
+      %a.side-header__new-icon{:href => "#"}
         %i.fa.fa-pencil.fa-write{"aria-hidden" => "true"}
-      %a.side-user__setting-icon{:href => "#"}
+      %a.side-header__setting-icon{:href => "#"}
         %i.fa.fa-cog.fa-setting{"aria-hidden" => "true"}
-    .side-group
+    .side-contents
       = render partial: 'group'
       = render partial: 'group'
   .chat-main
@@ -33,3 +33,4 @@
                 %i.fa.fa-picture-o.fa-2x{"aria-hidden" => "true"}
             %button.main-form__submit-button{:style => "position:absolute", :type => "submit"}
               %span Send
+ 
