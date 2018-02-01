@@ -1,0 +1,194 @@
+@import "variable";
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.flash-message {
+  background-color: $light-blue-color;
+  width: 100%;
+  height: 30px;
+  color: $white-color;
+  text-align: center;
+  line-height: 30px;
+}
+
+.chat {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  .chat-side {
+    width: 100%;
+    height: 100%;
+    .side-header {
+      width: 300px;
+      height: 100px;
+      background-color: #253141;
+      text-align: right;
+      line-height:100px;
+      &__user-name {
+        font-weight: bold;
+        font-size: 16px;
+        color: $white-color;
+        margin-left: 20px;
+        float: left;
+      }
+      .fa {
+        color: $white-color;
+        clear: left;
+      }
+      .fa-setting {
+        margin-right: 20px;
+      }
+    }
+    .side-contents {
+      width: 300px;
+      height: 100%;
+      background-color: #2f3e51;
+      .group-info {
+        width: 300px;
+        height: 91px;
+        span {
+          margin-left: 20px;
+          color: $white-color;
+          display: block;
+        }
+        &__name {
+          font-size: 15px;
+          padding-top: 20px;
+        }
+        &__notice {
+          font-size: 11px;
+          margin-top: 5px;
+        }
+
+      }
+    }
+  }
+  .chat-contents {
+    width: calc(100% - 300px);
+    height: 100%;
+    float: right;
+    position: relative;
+    .contents-header {
+      width: 100%;
+      height: 100px;
+      background-color: $white-color;
+      position: absolute;
+      top: -100%;
+      border-bottom: solid $light-gray;
+      span {
+        display: block;
+      }
+      &__group-name {
+        margin-left: 40px;
+        padding-top: 35px;
+        color: #333333;
+        font-size: 20px;
+        float: left;
+      }
+      &__edit-button {
+        height: 40px;
+        float: right;
+        margin-top: 28px;
+        margin-right: 40px;
+        padding-left: 20px;
+        padding-right: 20px;
+        border: solid $light-blue-color;
+        line-height: 40px;
+        font-size: 20px;
+        color: $light-blue-color;
+      }
+      &__group-members {
+        margin-left: 40px;
+        margin-top: 15px;
+        color: $thin-gray-color;
+        font-size: 12px;
+        clear: both;
+      }
+    }
+    .contents-main {
+      width: 100%;
+      height: calc(100% - 190px);
+      background-color: #AAAAAA;
+      position: absolute;
+      top: calc(-100% + 101px);
+      .content-message {
+        width: 100%;
+        height: 114px;
+        &__user-name {
+          color: $navy-color;
+          font-size: 16px;
+          font-weight: bold;
+          margin-top: 46px;
+          margin-left: 40px;
+          float: left;
+          display: inline-block;
+        }
+        &__time-stamp {
+          color: $thin-gray-color;
+          font-size: 12px;
+          margin-top: 46px;
+          margin-left: 10px;
+          display: inline-block;
+        }
+        &__text {
+          color: $navy-color;
+          font-size: 14px;
+          margin-left: 40px;
+          display: block;
+          clear: both;
+        }
+      }
+    }
+    .contents-footer {
+      width: 100%;
+      height: 90px;
+      background-color: $light-gray;
+      position: absolute;
+      top: -120px;
+      .message-form {
+        height: 50px;
+        width: calc(100% - 170px);
+        margin-top: 20px;
+        margin-bottom: 20px;
+        margin-right: 15px;
+        margin-left: 40px;
+        float: left;
+        position: relative;
+        &__text {
+          width: 100%;
+          height: 50px;
+          color: $navy-color;
+          font-size: 16px;
+          float: left;
+          padding-left: 10px;
+        }
+        label {
+          position: absolute;
+          width: 50px;
+          height: 50px;
+          margin-left: -50px;
+          margin-right: 10px;
+          line-height: 66px;
+        }
+        &__submit-button {
+          border: none;
+          cursor: pointer;
+          outline: none;
+          background-color: $light-blue-color;
+          height: 50px;
+          margin-left: 15px;
+          color: $white-color;
+          line-height: 50px;
+          float: right;
+          padding-left: 20px;
+          padding-right: 20px;
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}

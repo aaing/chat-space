@@ -1,0 +1,36 @@
+.chat
+  .flash-message
+    %span.flash-message__message
+      チャットグループが作成されました
+  .chat-side
+    .side-header
+      %span.side-header__user-name yuta
+      %a.side-header__new-icon{:href => "#"}
+        %i.fa.fa-pencil.fa-write{"aria-hidden" => "true"}
+      %a.side-header__setting-icon{:href => "#"}
+        %i.fa.fa-cog.fa-setting{"aria-hidden" => "true"}
+    .side-contents
+      = render partial: 'group'
+      = render partial: 'group'
+  .chat-contents
+    .contents-header
+      %span.contents-header__group-name
+        Testroom
+      %span.contents-header__edit-button
+        Edit
+      %span.contents-header__group-members
+        Members:yuta
+    .contents-main
+      = render partial: 'message'
+      = render partial: 'message'
+      = render partial: 'message'
+    .contents-footer
+      .message-form
+        %form{:enctype => "multipart/form-data", :method => "post"}
+          %input.message-form__text{:type => "text", :value => "type a message"}
+            %label
+              %input.message-form__image{:accept => "image/*", :style => "display:none", :type => "file"}
+                %i.fa.fa-picture-o.fa-2x{"aria-hidden" => "true"}
+          %button.message-form__submit-button{:style => "position:absolute", :type => "submit"}
+            %span Send
+
