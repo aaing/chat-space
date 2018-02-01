@@ -1,14 +1,14 @@
-<div class="flash-message">
-  <span class="message">
-    チャットグループが作成されました。
-  </span>
-</div>
 
 <div class="chat">
+  <div class="flash-message">
+    <span class="flash-message__message">
+     チャットグループが作成されました。
+    </span>
+  </div>
   <div class="chat-side">
     <div class="side-user">
       <span class="side-user__user-name">yuta</span>
-      <a href="#"><i class="fa fa-pencil fa-write" aria-hidden="true"></i></a>
+      <a class="side-user__new-icon" href="#"><i class="fa fa-pencil fa-write" aria-hidden="true"></i></a>
       <a class="side-user__setting-icon" href="#"><i class="fa fa-cog fa-setting" aria-hidden="true"></i></a>
     </div>
     <div class="side-group">
@@ -19,7 +19,7 @@
   <div class="chat-main">
     <div class="main-group">
       <span class="main-group__group-name">
-        testroom
+        Testroom
       </span>
       <span class="main-group__edit-button">
         Edit
@@ -41,10 +41,10 @@
             <input type="file" class="main-form__input-area__image" accept="image/*" style="display:none">
             <i class="fa fa-picture-o fa-2x" aria-hidden="true"></i>
           </label>
+          <button type="submit" class="main-form__submit-button" style="position:absolute;"">
+            <span>Send</span>
+          </button>
         </form>
-      </div>
-      <div class="main-form__submit-button">
-        Send
       </div>
     </div>
   </div>
