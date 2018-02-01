@@ -12,25 +12,25 @@
     .side-contents
       = render partial: 'group'
       = render partial: 'group'
-  .chat-main
-    .main-group
-      %span.main-group__group-name
+  .chat-contents
+    .contents-header
+      %span.contents-header__group-name
         Testroom
-      %span.main-group__edit-button
+      %span.contents-header__edit-button
         Edit
-      %span.main-group__group-members
+      %span.contents-header__group-members
         Members:yuta
-    .main-message
+    .contents-main
       = render partial: 'message'
       = render partial: 'message'
       = render partial: 'message'
-    .main-form
-      .main-form__input-area
+    .contents-footer
+      .message-form
         %form{:enctype => "multipart/form-data", :method => "post"}
-          %input.main-form__input-area__text{:type => "text", :value => "type a message"}
+          %input.message-form__text{:type => "text", :value => "type a message"}
             %label
-              %input.main-form__input-area__image{:accept => "image/*", :style => "display:none", :type => "file"}
+              %input.message-form__image{:accept => "image/*", :style => "display:none", :type => "file"}
                 %i.fa.fa-picture-o.fa-2x{"aria-hidden" => "true"}
-            %button.main-form__submit-button{:style => "position:absolute", :type => "submit"}
-              %span Send
- 
+          %button.message-form__submit-button{:style => "position:absolute", :type => "submit"}
+            %span Send
+
