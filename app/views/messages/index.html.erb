@@ -12,14 +12,8 @@
       <a class="side-user__setting-icon" href="#"><i class="fa fa-cog fa-setting" aria-hidden="true"></i></a>
     </div>
     <div class="side-group">
-      <div class="side-group__group-info">
-        <span class="side-group__group-info__group-name">yuta</span>
-        <span class="side-group__group-info__group-message">メッセージはまだありません</span>
-      </div>
-      <div class="side-group__group-info">
-        <span class="side-group__group-info__group-name">yuta2</span>
-        <span class="side-group__group-info__group-message">メッセージはまだありません</span>
-      </div>
+      <%= render partial: 'group' %>
+      <%= render partial: 'group' %>
     </div>
   </div>
   <div class="chat-main">
@@ -35,28 +29,9 @@
       </span>
     </div>
     <div class="main-message">
-      <div class="main-message__content-message">
-        <span class="main-message__content-message__user-name">
-          yuta
-        </span>
-        <span class="main-message__content-message__time-stamp">
-          2018/1/31 13:49:02
-        </span>
-        <span class="main-message__content-message__text">
-          てすとてすと
-        </span>
-      </div>
-            <div class="main-message__content-message">
-        <span class="main-message__content-message__user-name">
-          yuta2
-        </span>
-        <span class="main-message__content-message__time-stamp">
-          2018/1/31 13:49:03
-        </span>
-        <span class="main-message__content-message__text">
-          てすとてすと2
-        </span>
-      </div>
+      <%= render partial: 'message' %>
+      <%= render partial: 'message' %>
+      <%= render partial: 'message' %>
     </div>
     <div class="main-form">
       <div class="main-form__input-area">
