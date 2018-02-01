@@ -78,7 +78,7 @@ html, body {
       background-color: $white-color;
       position: absolute;
       top: -100%;
-      border-bottom: solid #eeeeee;
+      border-bottom: solid $light-gray;
       span {
         display: block;
       }
@@ -87,11 +87,12 @@ html, body {
         padding-top: 35px;
         color: #333333;
         font-size: 20px;
+        float: left;
       }
       &__edit-button {
         height: 40px;
         float: right;
-        margin-top: -27px;
+        margin-top: 28px;
         margin-right: 40px;
         padding-left: 20px;
         padding-right: 20px;
@@ -102,9 +103,10 @@ html, body {
       }
       &__group-members {
         margin-left: 40px;
-        padding-top: 15px;
+        margin-top: 15px;
         color: $thin-gray-color;
         font-size: 12px;
+        clear: both;
       }
     }
     .main-message {
@@ -120,7 +122,7 @@ html, body {
           color: $navy-color;
           font-size: 16px;
           font-weight: bold;
-          margin-top: 40px;
+          margin-top: 46px;
           margin-left: 40px;
           float: left;
           display: inline-block;
@@ -128,7 +130,7 @@ html, body {
         &__time-stamp {
           color: $thin-gray-color;
           font-size: 12px;
-          margin-top: 40px;
+          margin-top: 46px;
           margin-left: 10px;
           display: inline-block;
         }
@@ -144,13 +146,14 @@ html, body {
     .main-form {
       width: 100%;
       height: 90px;
-      background-color: #eeeeee;
+      background-color: $light-gray;
       position: absolute;
       top: -120px;
       &__input-area {
         height: 50px;
         width: calc(100% - 170px);
         margin-top: 20px;
+        margin-bottom: 20px;
         margin-right: 15px;
         margin-left: 40px;
         float: left;
@@ -179,7 +182,7 @@ html, body {
         background-color: $light-blue-color;
         height: 50px;
         margin-left: 15px;
-        color: #FFFFFF;
+        color: $white-color;
         line-height: 50px;
         float: right;
         padding-left: 20px;
