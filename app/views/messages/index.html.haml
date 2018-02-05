@@ -1,13 +1,11 @@
 .chat
-  .flash-message
-    %span.flash-message__message
-      チャットグループが作成されました
   .chat-side
     .side-header
-      %span.side-header__user-name yuta
+      %span.side-header__user-name
+        = current_user.name
       %a.side-header__new-icon{:href => "#"}
         %i.fa.fa-pencil.fa-write{"aria-hidden" => "true"}
-      %a.side-header__setting-icon{:href => "#"}
+      %a.side-header__setting-icon{:href => "users/edit"}
         %i.fa.fa-cog.fa-setting{"aria-hidden" => "true"}
     .side-contents
       = render partial: 'group'

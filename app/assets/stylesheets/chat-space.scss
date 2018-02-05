@@ -6,8 +6,17 @@ html, body {
   padding: 0;
 }
 
-.flash-message {
+.flash-message-success {
   background-color: $light-blue-color;
+  width: 100%;
+  height: 30px;
+  color: $white-color;
+  text-align: center;
+  line-height: 30px;
+}
+
+.flash-message-alert {
+  background-color: $alert-red;
   width: 100%;
   height: 30px;
   color: $white-color;
@@ -148,7 +157,7 @@ html, body {
       height: 90px;
       background-color: $light-gray;
       position: absolute;
-      top: -120px;
+      top: -90px;
       .message-form {
         height: 50px;
         width: calc(100% - 170px);
