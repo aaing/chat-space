@@ -184,6 +184,7 @@ html, body {
           line-height: 66px;
         }
         &__submit-button {
+          position: absolute;
           border: none;
           cursor: pointer;
           outline: none;
