@@ -19,11 +19,11 @@ class GroupsController < ApplicationController
   end
 
   def update
-    group = Group.find(params[:id])
-    if group.update(group_params)
+    @group = Group.find(params[:id])
+    if @group.update(group_params)
       redirect_to root_path, notice: "編集内容を保存しました"
     else
-      full_messages = group.errors.full_messages
+      @full_messages = @group.errors.full_messages
       render :edit
     end
   end
