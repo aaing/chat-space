@@ -17,4 +17,4 @@
 .byebug_history
 
 # Ignore local image file uploaded by carrierwave.
-pubic/
+public/
