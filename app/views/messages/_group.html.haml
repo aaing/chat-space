@@ -1,3 +1,6 @@
 .group-info
-  %span.group-info__name yuta
-  %span.group-info__notice メッセージはまだありません
+  - current_user.groups.each do |group|
+    = link_to "#" do
+      %span.group-info__name
+        = group.name
+      %span.group-info__notice メッセージはまだありません

@@ -1,4 +1,5 @@
 class GroupsController < ApplicationController
+  before_action :set_group, only: [:edit, :update]
 
   def new
     @group = Group.new
@@ -14,17 +15,23 @@ class GroupsController < ApplicationController
     end
   end
 
-  def edit
-    @group = Group.find(params[:id])
-  end
-
   def update
+    if @group.update(group_params)
+      redirect_to root_path, notice: "編集内容を保存しました"
+    else
+      @full_messages = @group.errors.full_messages
+      render :edit
+    end
   end
 
   private
 
   def group_params
-    params.require(:group).permit(:user_ids, :name)
+    params.require(:group).permit({:user_ids => []}, :name)
   end
-  
+
+  def set_group
+    @group = Group.find(params[:id])
+  end
+
 end
