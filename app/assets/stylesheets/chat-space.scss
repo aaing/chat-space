@@ -116,6 +116,12 @@ html, body {
         color: $thin-gray-color;
         font-size: 12px;
         clear: both;
+        ul {
+          float: left;
+        }
+        li {
+          float: left;
+        }
       }
     }
     .contents-main {
