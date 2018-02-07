@@ -8,6 +8,7 @@ class MessagesController < ApplicationController
   def create
     @group = Group.find(params[:group_id])
     @group.messages.create(message_params)
+    redirect_to group_messages_path(@group)
   end
 
   private
