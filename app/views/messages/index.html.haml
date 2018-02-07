@@ -16,7 +16,8 @@
       %span.contents-header__group-name
         = @group.name
       %span.contents-header__edit-button
-        Edit
+        = link_to edit_group_path(@group) do
+          Edit
       %span.contents-header__group-members
         %ul
           Members:
