@@ -8,8 +8,9 @@ class UsersController < ApplicationController
 
   def update
     if current_user.update(user_params)
-      redirect_to root_path
+      redirect_to root_path, notice: "編集内容を保存しました"
     else
+      @full_messages = current_user.errors.full_messages
       render :edit
     end
   end
