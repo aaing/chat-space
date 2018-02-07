@@ -108,7 +108,11 @@ html, body {
         border: solid $light-blue-color;
         line-height: 40px;
         font-size: 20px;
-        color: $light-blue-color;
+
+        a {
+          color: $light-blue-color;
+          text-decoration: none;
+        }
       }
       &__group-members {
         margin-left: 40px;
