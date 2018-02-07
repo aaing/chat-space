@@ -3,10 +3,12 @@
     .side-header
       %span.side-header__user-name
         = current_user.name
-      %a.side-header__new-icon{:href => "groups/new"}
-        %i.fa.fa-pencil.fa-write{"aria-hidden" => "true"}
-      %a.side-header__setting-icon{:href => "users/edit"}
-        %i.fa.fa-cog.fa-setting{"aria-hidden" => "true"}
+      %a.side-header__new-icon
+        = link_to new_group_path do
+          %i.fa.fa-pencil.fa-write{"aria-hidden" => "true"}
+      %a.side-header__setting-icon
+        = link_to edit_group_path(@group) do
+          %i.fa.fa-cog.fa-setting{"aria-hidden" => "true"}
     .side-contents
       = render partial: 'group'
   .chat-contents
