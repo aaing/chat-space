@@ -22,7 +22,8 @@
             %li
             = user.name
     .contents-main
-    = render @messages
+      - @messages.each do |message|
+        = render partial: 'message', locals: {message: message}
     .contents-footer
       .message-form
         = form_for [@group, @message] do |f|
