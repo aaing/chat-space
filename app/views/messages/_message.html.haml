@@ -1,6 +1,7 @@
 .content-message
   %span.content-message__user-name
     = message.body
+  = image_tag message.image.thumb
   %span.content-message__time-stamp
     = message.created_at.strftime('%Y年%m月%d日 %H:%M:%S')
   %span.content-message__text
