@@ -12,22 +12,23 @@
   .chat-contents
     .contents-header
       %span.contents-header__group-name
-        Testroom
+        = @group.name
       %span.contents-header__edit-button
         Edit
       %span.contents-header__group-members
-        Members:yuta
+        %ul
+          Members:
+          - @group.users.each do |user|
+            %li
+            = user.name
     .contents-main
-      = render partial: 'message'
-      = render partial: 'message'
-      = render partial: 'message'
+      - @group.messages.each do |message|
+        = render partial: 'message', locals: {message: message}
     .contents-footer
       .message-form
-        %form{:enctype => "multipart/form-data", :method => "post"}
-          %input.message-form__text{:type => "text", :value => "type a message"}
-            %label
-              %input.message-form__image{:accept => "image/*", :style => "display:none", :type => "file"}
-                %i.fa.fa-picture-o.fa-2x{"aria-hidden" => "true"}
-          %button.message-form__submit-button{:style => "position:absolute", :type => "submit"}
-            %span Send
-
+        = form_for [@group, @message] do |f|
+          = f.text_field :body, placeholder:"type a message", class:"message-form__text"
+          = f.label :image do
+            = f.file_field :image, style: "display:none"
+            %i.fa.fa-picture-o.fa-2x{"aria-hidden" => "true"}
+          = f.submit "Send", class: "message-form__submit-button"

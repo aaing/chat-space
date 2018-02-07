@@ -116,6 +116,12 @@ html, body {
         color: $thin-gray-color;
         font-size: 12px;
         clear: both;
+        ul {
+          float: left;
+        }
+        li {
+          float: left;
+        }
       }
     }
     .contents-main {
@@ -184,6 +190,7 @@ html, body {
           line-height: 66px;
         }
         &__submit-button {
+          position: absolute;
           border: none;
           cursor: pointer;
           outline: none;
