@@ -7,7 +7,7 @@ class Message < ApplicationRecord
 
   def validates_presence_of_message
     if body.blank? && image.blank?
-      errors.add(:message, "メッセージが空です")
+      errors.add(:body, "を入力してください")
     end
   end
  end
