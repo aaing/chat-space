@@ -9,7 +9,11 @@ before_action :set_group
   def create
     @message = @group.messages.new(message_params)
     if @message.save
-      redirect_to group_messages_path(@group), notice: 'メッセージが送信されました'
+      flash.now[:notice] = 'メッセージが送信されました'
+      respond_to do |format|
+        format.html { redirect_to group_messages_path(@group) }
+        format.json
+      end
     else
       flash.now[:alert] = 'メッセージを入力してください'
       @messages = @group.messages.includes(:user)
