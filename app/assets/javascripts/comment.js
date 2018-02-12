@@ -4,7 +4,7 @@ $(function(){
                   <span class="content-message__user-name">
                     ${message.body}
                   </span>
-                  <img src="${message.image}">
+                  ${ message.image == null ? "" : '<img src="' + message.image + '">' }
                   <span class="content-message__time-stamp">
                     ${message.time_stamp}
                   </span>
@@ -16,6 +16,7 @@ $(function(){
   }
   $(".new_message").on("submit", function(e){
     e.preventDefault();
+    event.stopPropagation();
     var formData = new FormData(this);
     var href = window.location.href
     $.ajax({
