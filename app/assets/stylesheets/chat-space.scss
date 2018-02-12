@@ -84,7 +84,7 @@ html, body {
     position: relative;
     background-color: #AAAAAA;
     .contents-header {
-      width: 100%;
+      width: calc(100% - 300px);
       height: 100px;
       background-color: $white-color;
       position: fixed;
