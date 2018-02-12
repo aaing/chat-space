@@ -32,6 +32,9 @@ $(function(){
       $('.contents-main').append(html)
       $('.message-form__text').val('')
       $('#message_image').val('')
+      var messages = $('.content-message');
+      var last_message_position = messages.length * 114 ;
+      $('.contents-main').animate({scrollTop: last_message_position }, 500, 'swing');
     })
     .fail(function(){
       alert('error');
