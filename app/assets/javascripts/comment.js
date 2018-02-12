@@ -1,5 +1,6 @@
 $(function(){
-    function buildHTML(message){
+
+  function buildHTML(message){
     var html = `<div class="content-message">
                   <span class="content-message__user-name">
                     ${message.body}
@@ -14,6 +15,18 @@ $(function(){
                 </div>`
     return html;
   }
+
+  function insertFlash(){
+    var html =`<div class="flash-message-success">メッセージが送信されました</div>`
+    return html;
+  }
+
+  function lastMessagePosition(){
+    var messages = $('.content-message');
+    var last_message_position = messages.length * 114 ;
+    return last_message_position;
+  }
+
   $(".new_message").on("submit", function(e){
     e.preventDefault();
     event.stopPropagation();
@@ -27,17 +40,29 @@ $(function(){
       processData: false,
       contentType: false
     })
+
     .done(function(data){
+      //新規メッセージのhtml作成
       var html = buildHTML(data);
       $('.contents-main').append(html)
+      //フォームの内容初期化
       $('.message-form__text').val('')
       $('#message_image').val('')
-      var messages = $('.content-message');
-      var last_message_position = messages.length * 114 ;
-      $('.contents-main').animate({scrollTop: last_message_position }, 500, 'swing');
+      //メッセージの最下部までスクロール
+      $('.contents-main').animate({scrollTop: lastMessagePosition() }, 500, 'swing');
+      //フラッシュメッセージの表示
+      var flash_html = insertFlash();
+      $('.chat').before(flash_html);
+      //フラッシュメッセージの削除
+      setTimeout(function(){
+        $('.flash-message-success').remove();
+      },2500);
+
     })
+
     .fail(function(){
-      alert('error');
+      alert('エラーが発生しました');
     })
+
   })
 });
