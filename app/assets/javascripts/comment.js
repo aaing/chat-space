@@ -3,14 +3,14 @@ $(function(){
   //新規メッセージのhtml作成
   function buildHTML(message){
     var html = `<div class="content-message">
-                  <span class="content-message__user-name">
+                  <span class="content-message__text">
                     ${message.body}
                   </span>
-                  ${ message.image == null ? "" : '<img src="' + message.image + '">' }
                   <span class="content-message__time-stamp">
                     ${message.time_stamp}
                   </span>
-                  <span class="content-message__text">
+                  ${ message.image == null ? "" : '<img src="' + message.image + '">' }
+                  <span class="content-message__user-name">
                     ${message.name}
                   </span>
                 </div>`
