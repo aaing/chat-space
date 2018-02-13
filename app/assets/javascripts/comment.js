@@ -51,9 +51,7 @@ $(function(){
       var scroll_height = $('.contents-main').get(0).scrollHeight;
       $('.contents-main').animate({scrollTop: scroll_height }, 500, 'swing');
       //フラッシュメッセージの削除
-      setTimeout(function(){
-        $('.flash-message-success').remove();
-      },2500);
+      $('.flash-message-success').fadeOut("slow");
 
     })
 
