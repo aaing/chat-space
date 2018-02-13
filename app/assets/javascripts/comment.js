@@ -1,5 +1,6 @@
 $(function(){
 
+  //新規メッセージのhtml作成
   function buildHTML(message){
     var html = `<div class="content-message">
                   <span class="content-message__user-name">
@@ -16,15 +17,10 @@ $(function(){
     return html;
   }
 
+  //フラッシュメッセージのhtml生成
   function insertFlash(){
     var html =`<div class="flash-message-success">メッセージが送信されました</div>`
     return html;
-  }
-
-  function lastMessagePosition(){
-    var messages = $('.content-message');
-    var last_message_position = messages.length * 114 ;
-    return last_message_position;
   }
 
   $(".new_message").on("submit", function(e){
@@ -48,11 +44,12 @@ $(function(){
       //フォームの内容初期化
       $('.message-form__text').val('')
       $('#message_image').val('')
-      //メッセージの最下部までスクロール
-      $('.contents-main').animate({scrollTop: lastMessagePosition() }, 500, 'swing');
       //フラッシュメッセージの表示
       var flash_html = insertFlash();
       $('.chat').before(flash_html);
+      //メッセージの最下部までスクロール
+      var scroll_height = $('.contents-main').get(0).scrollHeight;
+      $('.contents-main').animate({scrollTop: scroll_height }, 500, 'swing');
       //フラッシュメッセージの削除
       setTimeout(function(){
         $('.flash-message-success').remove();
