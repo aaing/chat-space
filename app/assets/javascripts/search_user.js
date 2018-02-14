@@ -1,8 +1,8 @@
 $(function(){
   //検索結果のリスト
-  var search_list = $(".user-search-result")
+  var searchList = $(".user-search-result")
   //チャットメンバーのインデックス
-  var chat_member_ids =  $("input[name='group[user_ids][]']").map(function(index, element){
+  var chatMemberIds =  $("input[name='group[user_ids][]']").map(function(index, element){
      return Number($(this).val());
   });
 
@@ -13,7 +13,7 @@ $(function(){
                   <a class="user-search-add chat-group-user__btn chat-group-user__btn--add" data-user-id="${user.id}" data-user-name="${user.name}">追加</a>
                 </div>`
     //末尾に追加
-    search_list.append(html);
+    searchList.append(html);
   }
 
   //一致するユーザーが居ない場合メッセージを出すhtmlを生成
@@ -22,15 +22,15 @@ $(function(){
                   ${ user }
                 </div>`
     //末尾に追加
-    search_list.append(html);
+    searchList.append(html);
   }
 
   //chat-memberリストにユーザを追加するhtmlを生成
-  function addUser(user_name, user_id){
+  function addUserToChatMember(userName, userId){
     var html = `<div class="chat-group-user clearfix js-chat-member">
-                  <input name="group[user_ids][]", type='hidden', value= "${user_id}">
+                  <input name="group[user_ids][]", type='hidden', value= "${userId}">
                   <p class="chat-group-user__name">
-                    ${user_name}
+                    ${userName}
                   </p>
                   <a class="user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn">
                     削除
@@ -41,7 +41,6 @@ $(function(){
   //検索窓に入力される度発火
   $("#user-search-field").on("keyup",function(){
     input = $(this).val();
-
     //非同期通信 リクエストにkeyword: inputを含める
     $.ajax({
       type: 'GET',
@@ -49,7 +48,6 @@ $(function(){
       data: { keyword: input },
       dataType: 'json'
     })
-
     //通信後処理
     .done(function(users) {
       //前の検索結果の削除
@@ -59,7 +57,7 @@ $(function(){
         users.forEach(function(user){
           //チャットメンバーの中に検索されたuserが居なければ、
           //インクリメンタルサーチされたuserのhtml生成
-          if ($.inArray(user.id, chat_member_ids) == -1 ) buildHTML(user) ;
+          if ($.inArray(user.id, chatMemberIds) == -1 ) buildHTML(user) ;
         });
       }
       else {
@@ -75,22 +73,22 @@ $(function(){
   //ユーザの追加をクリックすると発火
   $(document).on("click", ".user-search-add", function(){
     //user_name, user_idを取得
-    var user_name = $(this).data("user-name");
-    var user_id = $(this).data("user-id");
+    var userName = $(this).data("user-name");
+    var userId = $(this).data("user-id");
     //選択したユーザを検索結果から削除
     $(this).parent().remove();
     //チャットメンバーリストに新しいユーザのhtmlを追加
-    addUser(user_name, user_id);
+    addUserToChatMember(userName, userId);
     //チャットメンバーインデックスに新しいユーザのをidを追加
-    chat_member_ids.push(user_id);
+    chatMemberIds.push(userId);
   })
 
   //ユーザの削除をクリックすると発火
   $(document).on("click", ".user-search-remove", function(){
     //選択したユーザのidをチャットメンバーインデックスから削除
-    var user_id = $(this).data("user-id");
-    var idx = $.inArray(user_id, chat_member_ids);
-    chat_member_ids.splice(idx, 1);
+    var userId = $(this).data("user-id");
+    var idx = $.inArray(userId, chatMemberIds);
+    chatMemberIds.splice(idx, 1);
     //選択したユーザのhtmlをチャットメンバーリストから削除
     $(this).parent().remove();
   })
