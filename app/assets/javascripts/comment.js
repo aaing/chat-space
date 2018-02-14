@@ -23,6 +23,44 @@ $(function(){
     return html;
   }
 
+  // フォーカスが外れたときはsetIntervalを回避するためのフラグ
+  var autoUpdate = true;
+  window.onfocus = function(){
+    autoUpdate = true;
+  }
+  window.onblur = function(){
+    autoUpdate = false;
+  }
+  //5秒ごとに自動更新
+  setInterval(function() {
+    if(autoUpdate){
+      //非同期通信
+      $.ajax({
+        url: window.location.href,
+        type: "GET",
+        dataType: 'json',
+        processData: false,
+        contentType: false
+      })
+      //成功時
+      .done(function(messages) {
+        //各メッセージごとにhtmlを生成
+        //最新のメッセージidを取得
+        var latsMessageId = $(".content-message").last().data("message-id");
+        messages.forEach(function(message) {
+          if(message.id > latsMessageId ){
+            var html = buildHTML(message);
+            $('.contents-main').append(html)
+          }
+        });
+      })
+      //失敗時
+      .fail(function(data) {
+        alert('自動更新に失敗しました');
+      });
+    }
+  }, 5000 );
+
   $(".new_message").on("submit", function(e){
     e.preventDefault();
     event.stopPropagation();
