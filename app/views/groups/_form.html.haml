@@ -22,7 +22,7 @@
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
       = label_tag "chat_group_チャットメンバー", "チャットメンバー", class: "chat-group-form__label"
-    .chat-group-form__field--right
+    .chat-group-form__field--right{ id: "chat-member" }
       - @group.users.each do |user|
         .chat-group-user.clearfix.js-chat-member{id: user.id}
           %input{ name:"group[user_ids][]", type:'hidden', value: user.id }
