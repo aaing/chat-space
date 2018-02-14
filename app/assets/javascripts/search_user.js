@@ -71,7 +71,8 @@ $(function(){
   })
 
   //ユーザの追加をクリックすると発火
-  $(document).on("click", ".user-search-add", function(){
+  $(document).on("click", ".user-search-add", function(e){
+    e.preventDefault();
     //user_name, user_idを取得
     var userName = $(this).data("user-name");
     var userId = $(this).data("user-id");
@@ -84,7 +85,8 @@ $(function(){
   })
 
   //ユーザの削除をクリックすると発火
-  $(document).on("click", ".user-search-remove", function(){
+  $(document).on("click", ".user-search-remove", function(e){
+    e.preventDefault();
     //選択したユーザのidをチャットメンバーインデックスから削除
     var userId = $(this).data("user-id");
     var idx = $.inArray(userId, chatMemberIds);
