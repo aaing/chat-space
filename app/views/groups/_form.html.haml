@@ -17,25 +17,26 @@
       = label_tag "chat_group_チャットメンバーを追加", "チャットメンバーを追加", class:"chat-group-form__label"
     .chat-group-form__field--right
       .chat-group-form__search.clearfix
-        %input.chat-group-form__input#user-search-field{type: "text", placeholder: "追加したいユーザー名を入力してください"}
+        = text_field_tag "user-search-field", "", placeholder: "追加したいユーザー名を入力してください", class:"chat-group-form__input"
         .user-search-result
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
       = label_tag "chat_group_チャットメンバー", "チャットメンバー", class: "chat-group-form__label"
-    .chat-group-form__field--right{ id: "chat-member" }
+    .chat-group-form__field--right#chat-member
       .chat-group-user.clearfix.js-chat-member{id: current_user.id}
-        %input{ name:"group[user_ids][]", type:'hidden', value: current_user.id }
+        = hidden_field_tag "group[user_ids][]", current_user.id
         %p.chat-group-user__name
           = current_user.name
 
       - @group.users.each do |user|
         - if user.id != current_user.id
           .chat-group-user.clearfix.js-chat-member{id: user.id}
-            %input{ name:"group[user_ids][]", type:'hidden', value: user.id }
+            = hidden_field_tag "group[user_ids][]", user.id
             %p.chat-group-user__name
               = user.name
-            %a.user-search-remove.chat-group-user__btn.chat-group-user__btn--remove.js-remove-btn{"data-user-id": user.id }
-              削除
+            = link_to "削除", "javascript:void(0)", class:"user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn", "data-user-id": user.id
+            / %a.user-search-remove.chat-group-user__btn.chat-group-user__btn--remove.js-remove-btn{"data-user-id": user.id }
+            /   削除
 
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
