@@ -5,10 +5,6 @@ $(function(){
   var chat_member_ids =  $("input[name='group[user_ids][]']").map(function(index, element){
      return Number($(this).val());
   });
-  // chat_member_list.forEach(function(member){
-  //   member.val();
-  // }
-
 
   //インクリメンタルサーチされたuserのhtml生成
   function buildHTML(user){
