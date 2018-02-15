@@ -3,7 +3,15 @@ before_action :set_group
 
   def index
     @message = Message.new
-    @messages = @group.messages.includes(:user)
+    if params[:lastMessageId].present?
+      @messages = @group.messages.where("id > ?", params[:lastMessageId]).includes(:user)
+    else
+      @messages = @group.messages.includes(:user)
+    end
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   def create

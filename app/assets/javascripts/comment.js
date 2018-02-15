@@ -2,7 +2,7 @@ $(function(){
 
   //新規メッセージのhtml作成
   function buildHTML(message){
-    var html = `<div class="content-message">
+    var html = `<div class="content-message" data-message-id="${message.id}">
                   <span class="content-message__text">
                     ${message.body}
                   </span>
@@ -22,6 +22,43 @@ $(function(){
     var html =`<div class="flash-message-success">メッセージが送信されました</div>`
     return html;
   }
+
+  // フォーカスが外れたときはsetIntervalを回避するためのフラグ
+  var autoUpdate = true;
+  window.onfocus = function(){
+    autoUpdate = true;
+  }
+  window.onblur = function(){
+    autoUpdate = false;
+  }
+  //5秒ごとに自動更新する関数
+  function update(){
+    if(autoUpdate){
+      //最新のメッセージidを取得
+      var lastMessageId = $(".content-message").last().data("message-id");
+      //メッセージidをリクエストに含めて非同期通信
+      $.ajax({
+        url: window.location.href,
+        type: "GET",
+        dataType: 'json',
+        data: { lastMessageId: lastMessageId },
+      })
+      //成功時
+      .done(function(messages) {
+        //各メッセージごとにhtmlを生成
+        messages.forEach(function(message) {
+          var html = buildHTML(message);
+          $('.contents-main').append(html)
+        });
+      })
+      //失敗時
+      .fail(function(data) {
+        alert('自動更新に失敗しました');
+      });
+    }
+  }
+  //関数を実行
+  setInterval(update, 5000 );
 
   $(".new_message").on("submit", function(e){
     e.preventDefault();
@@ -52,7 +89,6 @@ $(function(){
       $('.contents-main').animate({scrollTop: scroll_height }, 500, 'swing');
       //フラッシュメッセージの削除
       $('.flash-message-success').fadeOut("slow");
-
     })
 
     .fail(function(){
