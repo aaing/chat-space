@@ -61,7 +61,7 @@ $(function(){
     }
   }
   //関数を実行
-  setInterval(update, 5000 );
+  setInterval(update(), 5000 );
 
   $(".new_message").on("submit", function(e){
     e.preventDefault();
