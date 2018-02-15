@@ -2,7 +2,7 @@ $(function(){
 
   //新規メッセージのhtml作成
   function buildHTML(message){
-    var html = `<div class="content-message">
+    var html = `<div class="content-message" data-message-id="${message.id}">
                   <span class="content-message__text">
                     ${message.body}
                   </span>
