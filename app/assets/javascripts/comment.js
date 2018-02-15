@@ -34,24 +34,21 @@ $(function(){
   //5秒ごとに自動更新する関数
   function update(){
     if(autoUpdate){
-      //非同期通信
+      //最新のメッセージidを取得
+      var lastMessageId = $(".content-message").last().data("message-id");
+      //メッセージidをリクエストに含めて非同期通信
       $.ajax({
         url: window.location.href,
         type: "GET",
         dataType: 'json',
-        processData: false,
-        contentType: false
+        data: { lastMessageId: lastMessageId },
       })
       //成功時
       .done(function(messages) {
         //各メッセージごとにhtmlを生成
-        //最新のメッセージidを取得
-        var latsMessageId = $(".content-message").last().data("message-id");
         messages.forEach(function(message) {
-          if(message.id > latsMessageId ){
-            var html = buildHTML(message);
-            $('.contents-main').append(html)
-          }
+          var html = buildHTML(message);
+          $('.contents-main').append(html)
         });
       })
       //失敗時
