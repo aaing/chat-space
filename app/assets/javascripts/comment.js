@@ -31,8 +31,8 @@ $(function(){
   window.onblur = function(){
     autoUpdate = false;
   }
-  //5秒ごとに自動更新
-  setInterval(function() {
+  //5秒ごとに自動更新する関数
+  function update(){
     if(autoUpdate){
       //非同期通信
       $.ajax({
@@ -59,7 +59,9 @@ $(function(){
         alert('自動更新に失敗しました');
       });
     }
-  }, 5000 );
+  }
+  //関数を実行
+  setInterval(update, 5000 );
 
   $(".new_message").on("submit", function(e){
     e.preventDefault();
