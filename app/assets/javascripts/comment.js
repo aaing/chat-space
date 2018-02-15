@@ -92,7 +92,6 @@ $(function(){
       $('.contents-main').animate({scrollTop: scroll_height }, 500, 'swing');
       //フラッシュメッセージの削除
       $('.flash-message-success').fadeOut("slow");
-
     })
 
     .fail(function(){
